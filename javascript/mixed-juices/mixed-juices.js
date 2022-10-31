@@ -24,7 +24,7 @@ export function timeToMixJuice(name) {
       return 5;
     default:
       return 2.5;
-  };
+  }
 }
 
 /**
@@ -36,7 +36,26 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  throw new Error('Please implement the limesToCut function');
+  let numOfLimes = 0;
+
+  while (wedgesNeeded > 0 && limes.length > 0) {
+
+    numOfLimes += 1;
+
+    switch(limes.shift()) {
+        case 'small':
+          wedgesNeeded -= 6;
+          break;
+        case 'medium':
+          wedgesNeeded -= 8;
+          break;
+        case 'large':
+          wedgesNeeded -= 10;
+          break;
+      }
+  }
+
+  return numOfLimes;
 }
 
 /**
